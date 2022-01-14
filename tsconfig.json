@@ -3,6 +3,7 @@
     "target": "es2020",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "outDir": "output"
   }
 }
