@@ -9,23 +9,23 @@ export const uuid = (): string => {
   return ksuid.randomSync().string;
 };
 let applicationId: string = "a3c87de8-92fe-4739-8d4e-0bcf75ea03bf";
-let importUsers: Object[] = [];
+let importUsers: any = [];
 let fusionAuthUser: {};
 var stream = fs.createReadStream("datasource/users.json", {
   flags: "r",
   encoding: "utf-8",
 });
 var client = new FusionAuthClient(
-  applicationId,
+  "OnB3Z9qJWYTHv6KSdV9CxpZPQ7aPl4PIP29B0XjREFsa1T5jjYksgCL9",
   "https://auth.dev.axis.lotterydev.com"
 );
 stream.pipe(JSONStream.parse("*")).on("data", (d: {}) => {
   //console.log(d["email"]);
   //console.log(d["phoneVerified"]);
   // console.log(d["emailVerified"]);
-  // console.log(d["_id"]["$oid"]);
+  console.log(d["_id"]["$oid"]);
   fusionAuthUser = {
-    id: d["_id"]["$oid"],
+    userId: d["_id"]["$oid"],
     email: d["email"],
     password: uuid(),
     registrations: [
