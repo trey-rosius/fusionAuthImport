@@ -16,7 +16,7 @@ var stream = fs.createReadStream("datasource/users.json", {
   encoding: "utf-8",
 });
 var client = new FusionAuthClient(
-  "OnB3Z9qJWYTHv6KSdV9CxpZPQ7aPl4PIP29B0XjREFsa1T5jjYksgCL9",
+  "api_key",
   "https://auth.dev.axis.lotterydev.com"
 );
 stream.pipe(JSONStream.parse("*")).on("data", (d: {}) => {
