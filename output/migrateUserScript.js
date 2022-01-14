@@ -12,7 +12,7 @@ var stream = fs.createReadStream("datasource/users.json", {
     flags: "r",
     encoding: "utf-8",
 });
-var client = new FusionAuthClient("api_key", "https://auth.dev.axis.lotterydev.com");
+var client = new FusionAuthClient("api_key", "url");
 stream.pipe(JSONStream.parse("*")).on("data", (d) => {
     //console.log(d["email"]);
     //console.log(d["phoneVerified"]);
@@ -36,7 +36,5 @@ stream.pipe(JSONStream.parse("*")).on("data", (d) => {
 });
 client
     .importUsers({ users: importUsers })
-    .then((clientResponse) => {
-    console.log("Completed");
-})
+    .then((clientResponse) => { })
     .catch(console.error);
